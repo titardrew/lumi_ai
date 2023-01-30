@@ -31,7 +31,6 @@ elseif(UNIX)
     # Shared Object
     add_library(OVYoloCpp SHARED source/ov_yolo.cc)
     target_compile_options(Lumi PUBLIC -fPIC)
-
     target_link_options(Lumi PUBLIC -fPIC)
     target_link_libraries(OVYoloCpp PUBLIC openvino::runtime Lumi)
 endif()

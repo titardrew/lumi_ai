@@ -174,6 +174,14 @@ int FindDevices()
     g__available_devices.clear();
 
     for (auto&& device_name : core.get_available_devices()) {
+	// TODO(aty): GNA devices are not supported. They crash an app. But why?
+	// According to logs, GNA supports only integer operations. Investigate
+	// later.
+    // UPDATE(aty): GNA - is a cool low-power Intel neural accelerator.
+    // This sounds awesome, but we won't need that for now. This is not
+    // an embedded GPU.
+
+	if (device_name.find("GNA") != std::string::npos) continue;
         auto device_full_name = core.get_property(device_name, ov::device::full_name);
 
         std::stringstream device_description;
