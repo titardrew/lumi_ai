@@ -11,8 +11,8 @@ install_folder="macOS"
 mkdir -p $build_folder
 cd $build_folder
 
-cmake -DCMAKE_BUILD_TYPE=Release -B $build_folder -S .
-cmake --build $build_folder
+cmake -DCMAKE_BUILD_TYPE=Release -B . -S ..
+cmake --build .
 
 # NOTE(@aty): I tried dylibbundler. It did not work well though.
 #
